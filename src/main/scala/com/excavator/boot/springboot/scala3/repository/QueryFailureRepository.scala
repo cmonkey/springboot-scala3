@@ -17,7 +17,7 @@ class QueryFailureRepository {
   val entityManager:EntityManager = null
 
   def queryFailure(startTime:LocalDateTime,endTime:LocalDateTime) = {
-    var sql = "SELECT r.orderNo, r.amount, r.res, u.phone, u.unionId FROM hwb2021.billing_record AS r LEFT JOIN msth.t_watsons_userInfo AS u ON r.unionId = u.unionId "
+    var sql = "SELECT r.orderNo, r.amount, r.res, u.phone, u.unionId FROM billingRecord AS r LEFT JOIN userInfo AS u ON r.unionId = u.unionId "
     sql = sql + "WHERE json_extract(r.res, '$.code') is null AND r.createdAt >="
     sql = sql + "'"
     sql = sql + startTime.format(DateTimeHelper.default_format)
