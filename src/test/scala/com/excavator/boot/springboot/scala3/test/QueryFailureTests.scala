@@ -29,7 +29,7 @@ class QueryFailureTests {
 
   @Test
   @DisplayName("test query failure record")
-  def queryFailureRecord():Unit = {
+  def testQueryFailureRecord():Unit = {
 
     val url = buildUrl("/query/failure/v1/record/"+"2023-05-05")
     val headers = new HttpHeaders()
